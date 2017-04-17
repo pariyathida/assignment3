@@ -16,12 +16,13 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix="server")
 @Component
 public class DataLoader implements ApplicationRunner {
+    @Autowired
     ProductDao productDao;
 
-    @Autowired
-    public void setProductDao(ProductDao productDao){
-        this.productDao = productDao;
-    }
+//    @Autowired
+//    public void setProductDao(ProductDao productDao){
+//        this.productDao = productDao;
+//    }
     String baseUrl;
     String imageUrl;
     String imageBaseUrl;

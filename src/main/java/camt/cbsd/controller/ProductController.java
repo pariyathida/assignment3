@@ -59,6 +59,13 @@ public class ProductController {
     }
 
     @GET
+    @Path("/hi")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getHi() {
+        return Response.ok("Hi").build();
+    }
+
+    @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProduct(@PathParam("id") long id) {
@@ -73,6 +80,7 @@ public class ProductController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addProduct(Product product) {
+
         return Response.ok(productService.addProduct(product)).build();
     }
 
@@ -89,7 +97,7 @@ public class ProductController {
             String newFilename = Integer.toString(LocalTime.now().hashCode(), 16) + Integer.toString(oldFilename.hashCode(), 16) + "." + ext;
             File targetFile = Files.createFile(Paths.get(imageServerDir + newFilename)).toFile();
             ImageIO.write(img, ext, targetFile);
-            return Response.ok(baseUrl + imageUrl + newFilename).build();
+            return Response.ok(newFilename).build();
         }catch(NullPointerException e){
             return Response.status(202).build();
         }

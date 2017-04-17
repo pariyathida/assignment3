@@ -5,7 +5,7 @@ spring:
       - inMemoryDB
 server:
   baseUrl: http://localhost:8080/
-  imageUrl: student/images/
+  imageUrl: product/images/
   imageServerDir: c:/bitbucket/images/
 ---
 spring:
