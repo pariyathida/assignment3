@@ -6,6 +6,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Controller;
 
 import javax.imageio.ImageIO;
@@ -27,6 +28,7 @@ import java.util.List;
 
 @Controller
 @Path("/product")
+@ConfigurationProperties(prefix = "server")
 public class ProductController {
 
     @Autowired
